@@ -8,7 +8,7 @@ lazy val mare = (project in file("."))
     sbtPlugin := true,
     publishMavenStyle := false,
     bintrayRepository := "jude",
-    bintrayOrganization in bintray := None,
+    // bintrayOrganization in bintray := None,
     git.useGitDescribe := true,
     addSbtPlugin("org.portable-scala" % "sbt-scalajs-crossproject"      % "1.0.0"),
     addSbtPlugin("org.portable-scala" % "sbt-scala-native-crossproject" % "1.0.0"),
