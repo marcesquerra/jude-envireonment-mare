@@ -32,7 +32,7 @@ jobs:
             - v1-dependencies-
 
       - run: |
-          cat /dev/null | sbt -Dbintray.user=$BINTRAY_USER -Dbintray.pass=$BINTRAY_PASS  test:compile publish
+          cat /dev/null | sbt compile publish
 
       - save_cache:
           paths:
