@@ -8,7 +8,7 @@ lazy val mare = (project in file("."))
  .settings(
     sbtPlugin := true,
     name := "mare",
-    publishMavenStyle := false,
+    publishMavenStyle := true,
     bintrayRepository := "jude",
     bintrayOrganization := Some("bryghts"),
     git.useGitDescribe := true,
