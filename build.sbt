@@ -15,7 +15,8 @@ lazy val mare = (project in file("."))
     addSbtPlugin("org.portable-scala" % "sbt-scalajs-crossproject"      % "1.0.0"),
     addSbtPlugin("org.portable-scala" % "sbt-scala-native-crossproject" % "1.0.0"),
     addSbtPlugin("org.scala-js"       % "sbt-scalajs"                   % "1.0.1"),
-    addSbtPlugin("org.scala-native"   % "sbt-scala-native"              % "0.4.0-M2")
+    addSbtPlugin("org.scala-native"   % "sbt-scala-native"              % "0.4.0-M2"),
+    addCompilerPlugin("org.scalamacros" % "paradise" % "2.1.1" cross CrossVersion.full)
  )
 
 
