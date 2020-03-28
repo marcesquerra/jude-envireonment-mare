@@ -22,7 +22,11 @@ object MarePlugin extends AutoPlugin {
       "-language:higherKinds",
       "-Yno-imports" //,
       // "-Yimports jude"
-    )
+    ),
+    addCompilerPlugin(
+      "org.scalamacros" % "paradise" % "2.1.1" cross CrossVersion.full
+    ),
+    addCompilerPlugin("com.bryghts.jude" %% "jude-importer" % "v51d59")
   )
 
 }
