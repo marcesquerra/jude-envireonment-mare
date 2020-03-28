@@ -20,8 +20,8 @@ object MarePlugin extends AutoPlugin {
       "-deprecation",
       "-unchecked",
       "-language:higherKinds",
-      "-Yno-imports",
-      "-Yimports jude"
+      "-Yno-imports" //,
+      // "-Yimports jude"
     )
   )
 
