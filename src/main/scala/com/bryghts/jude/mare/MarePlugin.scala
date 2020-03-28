@@ -8,9 +8,9 @@ import sbt.io.{IO, Path}
 
 object MarePlugin extends AutoPlugin {
 
-  override val trigger: PluginTrigger = noTrigger
+  override val trigger: PluginTrigger = allRequirements
 
-  override val requires: Plugins = plugins.JvmPlugin
+  override val requires: Plugins = empty
 
   override lazy val projectSettings: Seq[Setting[_]] = Seq(
     scalacOptions ++= Seq(
