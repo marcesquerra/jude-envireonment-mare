@@ -23,6 +23,7 @@ object MarePlugin extends AutoPlugin {
       "-Yno-imports" //,
       // "-Yimports jude"
     ),
+    resolvers += Resolver.bintrayRepo("bryghts", "jude"),
     addCompilerPlugin(
       "org.scalamacros" % "paradise" % "2.1.1" cross CrossVersion.full
     ),
