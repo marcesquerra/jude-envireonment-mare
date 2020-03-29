@@ -6,6 +6,10 @@ import sbt.Keys._
 import sbt._
 import sbt.io.{IO, Path}
 import scala.language.experimental.macros
+import org.portablescala.sbtplatformdeps.PlatformDepsGroupArtifactID
+import org.portablescala.sbtplatformdeps.JudeDepsSupport._
+import scala.reflect.macros.Context
+import scala.language.experimental.macros
 
 object MarePlugin extends AutoPlugin {
 
@@ -41,6 +45,20 @@ object MarePlugin extends AutoPlugin {
 
     def judeProject: sbtcrossproject.CrossProject.Builder =
       macro sbtcrossproject.JudeWrapper.judeProjectEmpty_impl
+
+    implicit def StringExtensionToBuildDeps(
+        groupID: String
+    ): DepsGroupID = {
+      require(groupID.nonEmpty, "Group ID may not be empty")
+      new DepsGroupID(groupID)
+    }
+
+    implicit class PlatformDepsGroupArtifactIDExtension(
+        val gna: PlatformDepsGroupArtifactID
+    ) extends AnyVal {
+      def /(revision: String): ModuleID =
+        gna % revision
+    }
 
   }
 }
