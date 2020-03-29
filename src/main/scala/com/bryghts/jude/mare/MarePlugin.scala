@@ -5,6 +5,7 @@ import java.io.File
 import sbt.Keys._
 import sbt._
 import sbt.io.{IO, Path}
+import scala.language.experimental.macros
 
 object MarePlugin extends AutoPlugin {
 
@@ -31,4 +32,12 @@ object MarePlugin extends AutoPlugin {
     addCompilerPlugin("com.bryghts.jude" %% "jude-importer" % "v51d59")
   )
 
+  object autoImport {
+
+    def judeProject(
+        platforms: sbtcrossproject.Platform*
+    ): sbtcrossproject.CrossProject.Builder =
+      macro sbtcrossproject.JudeWrapper.judeProject_impl
+
+  }
 }
