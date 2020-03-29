@@ -6,21 +6,30 @@ object JudeWrapper {
 
   import CrossProjectMacros._
 
-  private val all = List("JSPlatform", "JVMPlatform", "NativePlatform")
+  private val all = List(
+    ("scalajscrossproject", scalajscrossproject.JSPlatform),
+    ("sbtcrossproject", sbtcrossproject.JVMPlatform),
+    ("scalanativecrossproject", scalanativecrossproject.NativePlatform)
+  )
+
+  def judeProjectEmpty_impl(
+      c: Context
+  ): c.Expr[CrossProject.Builder] =
+    judeProject_impl(c)()
 
   def judeProject_impl(
       c: Context
   )(platforms: c.Expr[Platform]*): c.Expr[CrossProject.Builder] = {
     import c.universe._
 
-    def platform(p: String): c.Expr[Platform] =
+    def platform(p: (String, Platform)): c.Expr[Platform] =
       c.Expr[Platform](
         Select(
           Select(
             Ident(TermName("_root_")),
-            TermName("sbtcrossproject")
+            TermName(p._1)
           ),
-          TermName(p)
+          TermName(p._2.toString)
         )
       )
 

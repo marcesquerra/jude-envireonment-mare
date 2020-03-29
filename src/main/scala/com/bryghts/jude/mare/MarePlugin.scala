@@ -39,5 +39,8 @@ object MarePlugin extends AutoPlugin {
     ): sbtcrossproject.CrossProject.Builder =
       macro sbtcrossproject.JudeWrapper.judeProject_impl
 
+    def judeProject: sbtcrossproject.CrossProject.Builder =
+      macro sbtcrossproject.JudeWrapper.judeProjectEmpty_impl
+
   }
 }
