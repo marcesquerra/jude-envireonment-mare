@@ -13,6 +13,7 @@ object MarePlugin extends AutoPlugin {
   override val requires: Plugins = empty
 
   override lazy val projectSettings: Seq[Setting[_]] = Seq(
+    scalaVersion := "2.11.12",
     libraryDependencies += "io.estatico" %% "newtype" % "0.4.3",
     scalacOptions ++= Seq(
       "-encoding",
