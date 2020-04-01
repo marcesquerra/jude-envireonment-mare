@@ -13,7 +13,7 @@ lazy val mare = (project in file("."))
     , bintrayRepository := "jude"
     , bintrayOrganization := Some("bryghts")
     , git.useGitDescribe := true
-    , git.formattedShaVersion := git.gitHeadCommit.value map { sha => s"v${sha.take(5)}" }
+    , git.formattedShaVersion := git.gitHeadCommit.value map { sha => s"v${sha.take(5).toUpperCase}" }
     , addSbtPlugin("org.portable-scala" % "sbt-scalajs-crossproject"      % "1.0.0")
     , addSbtPlugin("org.portable-scala" % "sbt-scala-native-crossproject" % "1.0.0")
     , addSbtPlugin("org.scala-js"       % "sbt-scalajs"                   % "1.0.1")
