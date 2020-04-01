@@ -36,7 +36,7 @@ object MarePlugin extends AutoPlugin {
     ),
     addCompilerPlugin("com.bryghts.jude" %% "jude-importer" % "vA9DE7"),
     addCompilerPlugin("com.bryghts.jude" %% "jude-equals" % "v0B370"),
-    addCompilerPlugin("com.bryghts.jude" %% "jude-literals" % "vFE295")
+    addCompilerPlugin("com.bryghts.jude" %% "jude-literals" % "vD479D")
   )
 
   object autoImport {
