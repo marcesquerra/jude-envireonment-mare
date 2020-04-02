@@ -35,9 +35,8 @@ object MarePlugin extends AutoPlugin {
       "org.scalamacros" % "paradise" % "2.1.1" cross CrossVersion.full
     ),
     addCompilerPlugin("com.bryghts.jude" %% "jude-importer" % "vA9DE7"),
-    addCompilerPlugin("com.bryghts.jude" %% "jude-equals" % "v078A6"),
-    addCompilerPlugin("com.bryghts.jude" %% "jude-literals" % "vD479D"),
-    addCompilerPlugin("com.bryghts.jude" %% "jude-tostring" % "v0806F")
+    addCompilerPlugin("com.bryghts.jude" %% "jude-renamer" % "v4AAA3"),
+    addCompilerPlugin("com.bryghts.jude" %% "jude-literals" % "vD479D")
   )
 
   object autoImport {
