@@ -7,9 +7,11 @@ import sbt._
 import sbt.io.{IO, Path}
 import scala.language.experimental.macros
 import org.portablescala.sbtplatformdeps.PlatformDepsGroupArtifactID
+import org.portablescala.sbtplatformdeps.PlatformDepsPlugin.autoImport._
 import org.portablescala.sbtplatformdeps.JudeDepsSupport._
 import scala.reflect.macros.Context
 import scala.language.experimental.macros
+import sbtcrossproject._
 
 object MarePlugin extends AutoPlugin {
 
@@ -19,16 +21,16 @@ object MarePlugin extends AutoPlugin {
 
   override lazy val projectSettings: Seq[Setting[_]] = Seq(
     scalaVersion := "2.11.12",
-    libraryDependencies += "io.estatico" %% "newtype" % "0.4.3",
-    libraryDependencies += "org.typelevel" %% "simulacrum" % "1.0.0",
+    libraryDependencies += "io.estatico" %%% "newtype" % "0.4.3-14-g6a6ce21",
+    libraryDependencies += "org.typelevel" %%% "simulacrum" % "1.0.0",
+    libraryDependencies += "com.bryghts" %%% "high-priority" % "v4C646",
     scalacOptions ++= Seq(
       "-encoding",
       "utf8",
       "-deprecation",
       "-unchecked",
       "-language:higherKinds",
-      "-Yno-imports" //,
-      // "-Yimports jude"
+      "-Yno-imports"
     ),
     resolvers += Resolver.bintrayRepo("bryghts", "jude"),
     addCompilerPlugin(
