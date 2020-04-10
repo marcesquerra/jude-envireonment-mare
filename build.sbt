@@ -14,10 +14,11 @@ lazy val mare = (project in file("."))
     , bintrayOrganization := Some("bryghts")
     , git.useGitDescribe := true
     , git.formattedShaVersion := git.gitHeadCommit.value map { sha => s"v${sha.take(5).toUpperCase}" }
-    , addSbtPlugin("org.portable-scala" % "sbt-scalajs-crossproject"      % "1.0.0")
-    , addSbtPlugin("org.portable-scala" % "sbt-scala-native-crossproject" % "1.0.0")
-    , addSbtPlugin("org.scala-js"       % "sbt-scalajs"                   % "1.0.1")
-    , addSbtPlugin("org.scala-native"   % "sbt-scala-native"              % "0.4.0-M2")
+    , addSbtPlugin("org.portable-scala"      % "sbt-scalajs-crossproject"      % "1.0.0")
+    , addSbtPlugin("org.portable-scala"      % "sbt-scala-native-crossproject" % "1.0.0")
+    , addSbtPlugin("org.scala-js"            % "sbt-scalajs"                   % "1.0.1")
+    , addSbtPlugin("org.scala-native"        % "sbt-scala-native"              % "0.4.0-M2")
+    , addSbtPlugin("com.softwaremill.clippy" % "plugin-sbt"                    % "0.6.1")
  )
 
 

@@ -12,12 +12,14 @@ import org.portablescala.sbtplatformdeps.JudeDepsSupport._
 import scala.reflect.macros.Context
 import scala.language.experimental.macros
 import sbtcrossproject._
+import com.softwaremill.clippy.ClippySbtPlugin
+import com.softwaremill.clippy.ClippySbtPlugin.autoImport._
 
 object MarePlugin extends AutoPlugin {
 
   override val trigger: PluginTrigger = allRequirements
 
-  override val requires: Plugins = empty
+  override val requires: Plugins = ClippySbtPlugin
 
   override lazy val projectSettings: Seq[Setting[_]] = Seq(
     scalaVersion := "2.11.12",
@@ -38,7 +40,8 @@ object MarePlugin extends AutoPlugin {
     ),
     addCompilerPlugin("com.bryghts.jude" %% "jude-importer" % "vA9DE7"),
     addCompilerPlugin("com.bryghts.jude" %% "jude-renamer" % "vB878B"),
-    addCompilerPlugin("com.bryghts.jude" %% "jude-literals" % "vD3788")
+    addCompilerPlugin("com.bryghts.jude" %% "jude-literals" % "vD3788"),
+    clippyFatalWarnings ++= List(NonExhaustiveMatch)
   )
 
   object autoImport {
