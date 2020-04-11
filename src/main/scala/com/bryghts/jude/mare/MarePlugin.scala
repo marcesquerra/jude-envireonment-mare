@@ -24,7 +24,7 @@ object MarePlugin extends AutoPlugin {
   override lazy val projectSettings: Seq[Setting[_]] = Seq(
     scalaVersion := "2.11.12",
     libraryDependencies += "io.estatico" %%% "newtype" % "0.4.3-14-g6a6ce21",
-    libraryDependencies += "org.typelevel" %%% "simulacrum" % "1.0.0-53-gcc642cc",
+    libraryDependencies += "org.typelevel" %%% "simulacrum" % "1.0.0-54-g1aa52e9",
     libraryDependencies += "com.bryghts" %%% "high-priority" % "v4C646",
     scalacOptions ++= Seq(
       "-encoding",
