@@ -21,11 +21,14 @@ object MarePlugin extends AutoPlugin {
 
   override val requires: Plugins = ClippySbtPlugin
 
+  val silencerVersion = "1.4.4"
+
   override lazy val projectSettings: Seq[Setting[_]] = Seq(
     scalaVersion := "2.11.12",
     libraryDependencies += "io.estatico" %%% "newtype" % "0.4.3-15-g418ac6d",
     libraryDependencies += "org.typelevel" %%% "simulacrum" % "1.0.0-54-g2fcd9a1",
     libraryDependencies += "com.bryghts" %%% "high-priority" % "v4C646",
+    libraryDependencies += "com.github.ghik" % "silencer-lib" % silencerVersion % Provided cross CrossVersion.full,
     scalacOptions ++= Seq(
       "-encoding",
       "utf8",
@@ -41,6 +44,9 @@ object MarePlugin extends AutoPlugin {
     addCompilerPlugin("com.bryghts.jude" %% "jude-importer" % "vA9DE7"),
     addCompilerPlugin("com.bryghts.jude" %% "jude-renamer" % "vB878B"),
     addCompilerPlugin("com.bryghts.jude" %% "jude-literals" % "vD3788"),
+    addCompilerPlugin(
+      "com.github.ghik" % "silencer-plugin" % silencerVersion cross CrossVersion.full
+    ),
     clippyFatalWarnings ++= List(NonExhaustiveMatch)
   )
 
