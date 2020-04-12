@@ -65,7 +65,7 @@ object MarePlugin extends AutoPlugin {
       "org.scalamacros" % "paradise" % "2.1.1" cross CrossVersion.full
     ),
     addCompilerPlugin("com.bryghts.jude" %% "jude-importer" % "vA9DE7"),
-    addCompilerPlugin("com.bryghts.jude" %% "jude-renamer" % "v16C61"),
+    addCompilerPlugin("com.bryghts.jude" %% "jude-renamer" % "v82737"),
     addCompilerPlugin("com.bryghts.jude" %% "jude-literals" % "vD3788"),
     addCompilerPlugin(
       "com.github.ghik" % "silencer-plugin" % silencerVersion cross CrossVersion.full
